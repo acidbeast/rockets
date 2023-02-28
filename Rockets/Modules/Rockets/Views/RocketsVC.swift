@@ -9,7 +9,7 @@ import UIKit
 
 final class RocketsVC: UIPageViewController {
 
-    var presenter: RocketsPresenter!
+    var presenter: RocketsPresenterProtocol!
     private var rocketViewControllers = [UIViewController]()
     
     init() {
@@ -88,9 +88,9 @@ extension RocketsVC {
 
 // MARK: - MainViewProtocol
 extension RocketsVC: RocketsViewProtocol {
-    func showRockets(rockets: [Rocket]) {
+    func showRockets() {
         rocketViewControllers = []
-        rockets.forEach { rocket in
+        presenter.rockets.forEach { rocket in
             DispatchQueue.main.async { [weak self, rocket] in
                 let vc = self?.presenter.getRocketPage(rocket: rocket) ?? UIViewController()
                 self?.rocketViewControllers.append(vc)

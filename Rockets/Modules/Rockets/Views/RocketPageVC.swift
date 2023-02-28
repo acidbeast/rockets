@@ -15,8 +15,8 @@ final class RocketPageVC: UIViewController {
         frame: .zero,
         collectionViewLayout: UICollectionViewFlowLayout()
     )
-    private var sections = [RocketSection]()
-    var presenter: RocketsPagePresenter!
+
+    var presenter: RocketsPagePresenterProtocol!
         
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,8 +28,10 @@ final class RocketPageVC: UIViewController {
     }
 }
 
-extension RocketPageVC {
-    private func setup() {
+// MARK: - Setup
+private extension RocketPageVC {
+    
+    func setup() {
         view.addSubview(collectionView)
         collectionView.dataSource = self
         collectionView.delegate = self
@@ -42,12 +44,6 @@ extension RocketPageVC {
             collectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor)
         ])
-    }
-    func present(_ sections: [RocketSection]) {
-        self.sections = sections
-        DispatchQueue.main.async {
-            self.collectionView.reloadData()
-        }
     }
 }
 
@@ -78,8 +74,8 @@ extension RocketPageVC: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let item = sections[indexPath.section].type
-        let imageData = sections[indexPath.section].imageData
+        let item = presenter.sections[indexPath.section].type
+        let imageData = presenter.sections[indexPath.section].imageData
         switch item {
         case .image:
             return createRocketImageCollectionViewCell(indexPath, imageData)
@@ -97,7 +93,7 @@ extension RocketPageVC: UICollectionViewDataSource {
     }
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        sections.count
+        presenter.sections.count
     }
 }
 
@@ -105,7 +101,7 @@ extension RocketPageVC: UICollectionViewDataSource {
 
 extension RocketPageVC: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let section = sections[indexPath.section].type
+        let section = presenter.sections[indexPath.section].type
         switch section {
         case .title:
             return .init(
@@ -227,15 +223,11 @@ private extension RocketPageVC {
     
 }
 
-// MARK: - Update Section
+// MARK: - Reload Collection
 extension RocketPageVC {
-    
-    func updateSection(with section: RocketSection, at index: Int) {
+    func reloadCollection() {
         DispatchQueue.main.async {
-            self.sections.remove(at: index)
-            self.sections.insert(contentsOf: [section], at: index)
             self.collectionView.reloadData()
         }
     }
-    
 }

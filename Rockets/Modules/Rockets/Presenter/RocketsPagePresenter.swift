@@ -8,8 +8,7 @@
 import UIKit
 
 protocol RocketPageViewProtocol: AnyObject {
-    func present(_ sections: [RocketSection])
-    func updateSection(with section: RocketSection, at index: Int)
+    func reloadCollection()
 }
 
 protocol RocketsPagePresenterProtocol: AnyObject {
@@ -20,6 +19,7 @@ protocol RocketsPagePresenterProtocol: AnyObject {
         settingsRepository: SettingsRepositoryProtocol,
         rocket: Rocket
     )
+    var sections: [RocketSection] { get set }
     func present()
     func tapOnSettings()
     func tapOnLauches()
@@ -35,7 +35,9 @@ final class RocketsPagePresenter: RocketsPagePresenterProtocol {
     private let imageDownloader: ImageDownloader?
     private let settingsRepository: SettingsRepositoryProtocol?
     private let rocket: Rocket
+    
     private var settings = [Setting]()
+    var sections: [RocketSection] = []
     
     required init(
         view: RocketPageViewProtocol,
@@ -52,7 +54,7 @@ final class RocketsPagePresenter: RocketsPagePresenterProtocol {
     }
     
     func present() {
-        view?.present([
+        self.sections = [
             .init(
                 type: .image
             ),
@@ -134,7 +136,8 @@ final class RocketsPagePresenter: RocketsPagePresenterProtocol {
             .init(
                 type: .button(text: "View launches")
             )
-        ])
+        ]
+        view?.reloadCollection()
     }
             
     func tapOnSettings() {
@@ -162,7 +165,8 @@ final class RocketsPagePresenter: RocketsPagePresenterProtocol {
     func updateImage(with data: Data) {
         var section = RocketSection(type: .image)
         section.imageData = data
-        view?.updateSection(with: section, at: 0)
+        updateSection(with: section, at: 0)
+        view?.reloadCollection()
     }
 
     func getSettings() {
@@ -192,9 +196,15 @@ final class RocketsPagePresenter: RocketsPagePresenterProtocol {
         return items
     }
     
+    func updateSection(with section: RocketSection, at index: Int) {
+        self.sections.remove(at: index)
+        self.sections.insert(contentsOf: [section], at: index)
+    }
+    
     func updateSpecs() {
         let section = RocketSection(type: .horizontal(items: getRocketSpecItems()))
-        view?.updateSection(with: section, at: 2)
+        updateSection(with: section, at: 2)
+        view?.reloadCollection()
     }
     
 }

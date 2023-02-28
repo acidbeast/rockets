@@ -8,7 +8,7 @@
 import UIKit
 
 protocol RocketsViewProtocol: AnyObject {
-    func showRockets(rockets: [Rocket])
+    func showRockets()
 }
 
 protocol RocketsPresenterProtocol: AnyObject {
@@ -17,6 +17,7 @@ protocol RocketsPresenterProtocol: AnyObject {
         router: MainRouterProtocol,
         rockets: [Rocket]
     )
+    var rockets: [Rocket] { get set }
     func showRockets()
     func getRocketPage(rocket: Rocket) -> UIViewController
 }
@@ -38,7 +39,7 @@ final class RocketsPresenter: RocketsPresenterProtocol {
     }
     
     func showRockets() {
-        view?.showRockets(rockets: rockets)
+        view?.showRockets()
     }
     
     func getRocketPage(rocket: Rocket) -> UIViewController {

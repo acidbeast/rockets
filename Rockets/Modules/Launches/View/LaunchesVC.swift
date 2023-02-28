@@ -9,12 +9,11 @@ import UIKit
 
 final class LaunchesVC: UIViewController {
     
-    var presenter: LaunchesPresenter!
+    var presenter: LaunchesPresenterProtocol!
     
     private let loadingView = LoadingView()
     private let emptyView = EmptyView()
     private let tableView = UITableView()
-    private var launches = [Launch]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,7 +29,7 @@ final class LaunchesVC: UIViewController {
 extension LaunchesVC: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        launches.count
+        presenter.launches.count
     }
         
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -46,7 +45,7 @@ extension LaunchesVC: UITableViewDelegate {
             withIdentifier: LaunchTableViewCell.identifier) as? LaunchTableViewCell else {
             return UITableViewCell()
         }
-        let launch = launches[indexPath.row]
+        let launch = presenter.launches[indexPath.row]
         cell.configure(
             title: launch.name,
             date: launch.dateFormatted(),
@@ -76,11 +75,10 @@ extension LaunchesVC: LaunchesViewProtocol {
         }
     }
     
-    func showTable(launches: [Launch]) {
+    func showTable() {
         DispatchQueue.main.async {
             self.loadingView.removeFromSuperview()
             self.setupTableView()
-            self.launches = launches
             self.reloadTable()
         }
     }

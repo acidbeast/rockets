@@ -9,7 +9,7 @@ import Foundation
 
 protocol LaunchesViewProtocol: AnyObject {
     func setNavigationTitle(with: String)
-    func showTable(launches: [Launch])
+    func showTable()
     func showEmpty(_ title: String, _ description: String)
 }
 
@@ -21,9 +21,10 @@ protocol LaunchesPresenterProtocol: AnyObject {
         rocketName: String,
         launchService: LaunchNetworkService
     )
+    var launches: [Launch] { get set }
     func getLaunches()
     func setTitle()
-    func showTable(with launches: [Launch])
+    func showTable()
     func showEmpty()
 }
 
@@ -33,8 +34,9 @@ final class LaunchesPresenter: LaunchesPresenterProtocol {
     let router: MainRouterProtocol!
     private let rocketId: String
     private let rocketName: String
-    private var launches = [Launch]()
     private let launchService: LaunchNetworkService
+    
+    var launches = [Launch]()
     
     init(
         view: LaunchesViewProtocol,
@@ -55,7 +57,8 @@ final class LaunchesPresenter: LaunchesPresenterProtocol {
             onSuccess: { [weak self] (launches: [Launch]) in
                 let launchesForRocket = launches.filter { $0.rocket == self?.rocketId }
                 if launchesForRocket.count > 0 {
-                    self?.showTable(with: launchesForRocket)
+                    self?.launches = launchesForRocket
+                    self?.showTable()
                 } else {
                     self?.showEmpty()
                 }
@@ -70,8 +73,8 @@ final class LaunchesPresenter: LaunchesPresenterProtocol {
         view?.setNavigationTitle(with: rocketName)
     }
     
-    func showTable(with launches: [Launch]) {
-        view?.showTable(launches: launches)
+    func showTable() {
+        view?.showTable()
     }
     
     func showEmpty() {

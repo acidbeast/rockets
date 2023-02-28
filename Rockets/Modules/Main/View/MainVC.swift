@@ -8,16 +8,20 @@
 import UIKit
 
 final class MainVC: UIViewController {
+    
     var presenter: MainPresenter!
     let mainView = LoadingView()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
         presenter.getRockets()
     }
+    
     override func viewDidAppear(_ animated: Bool) {
         mainView.playAnimation()
     }
+    
 }
 
 extension MainVC: MainViewProtocol {}

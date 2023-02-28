@@ -8,7 +8,7 @@
 import Foundation
  
 protocol SettingsViewProtocol: AnyObject {
-    func showSettingsTable(settings: [Setting])
+    func reloadTable()
 }
 
 protocol SettingsPresenterProtocol: AnyObject {
@@ -19,9 +19,11 @@ protocol SettingsPresenterProtocol: AnyObject {
         rocketId: String,
         onClose: (() -> Void)?
     )
+    var settings: [Setting] { get set }
     func getSettings()
     func change(_ setting: Setting, _ selectedIndex: Int)
     func save()
+    func close()
 }
 
 final class SettingsPresenter {
@@ -30,11 +32,10 @@ final class SettingsPresenter {
     private let router: MainRouterProtocol?
     private let settingsRepository: SettingsRepository?
     private let rocketId: String
-    private var settings = [Setting]()
     private var onClose: (() ->  Void)?
     
-    //var present: (([Setting]) -> Void)?
-    
+    var settings = [Setting]()
+        
     init(
         view: SettingsViewProtocol,
         router: MainRouterProtocol,
@@ -56,7 +57,7 @@ extension SettingsPresenter: SettingsPresenterProtocol {
     func getSettings() {
         guard let savedSettings = settingsRepository?.get(for: rocketId) else { return }
         settings = savedSettings
-        view?.showSettingsTable(settings: settings)
+        view?.reloadTable()
     }
      
     func change(_ oldSetting: Setting, _ selectedIndex: Int) {

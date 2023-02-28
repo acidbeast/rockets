@@ -13,8 +13,8 @@ final class SettingsVC: UIViewController {
     private let titleLabel = UILabel()
     private let closeButton = UIButton()
     private let tableView = UITableView()
-    private var settings = [Setting]()
-    var presenter: SettingsPresenter!
+
+    var presenter: SettingsPresenterProtocol!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -102,7 +102,7 @@ private extension SettingsVC {
 extension SettingsVC: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return settings.count
+        return presenter.settings.count
     }
         
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -119,7 +119,7 @@ extension SettingsVC: UITableViewDelegate {
             return UITableViewCell()
         }
         cell.configure(
-            with: settings[indexPath.row],
+            with: presenter.settings[indexPath.row],
             settingChanged: self.presenter.change
         )
         return cell
@@ -134,8 +134,7 @@ extension SettingsVC: UITableViewDelegate {
 // MARK: - SettingsViewProtocol Conformance
 extension SettingsVC: SettingsViewProtocol {
     
-    func showSettingsTable(settings: [Setting]) {
-        self.settings = settings
+    func reloadTable() {
         DispatchQueue.main.async {
             self.tableView.reloadData()
         }
