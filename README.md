@@ -18,3 +18,8 @@ This app consumes SpaceX's public API and displays:
 - CoreAnimation
 - MVP+Router
 - Dependency Injection
+
+## Dependencies
+
+- Swift Network Dispatcher (https://github.com/acidbeast/network-dispatcher). \
+My own Swift PM package for network requests.
