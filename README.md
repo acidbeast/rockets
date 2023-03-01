@@ -16,8 +16,10 @@ This app consumes SpaceX's public API and displays:
 - Swift
 - UIKit
 - CoreAnimation
+- XCTest
 - MVP+Router
 - Dependency Injection
+- Unit Tests
 
 ## Dependencies
 
