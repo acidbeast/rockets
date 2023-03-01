@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7A819FC829AFDC6B000BC1DC /* ModuleBuilderTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A819FC729AFDC6B000BC1DC /* ModuleBuilderTest.swift */; };
 		7AB8B5BD29AD30C30033C0B4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AB8B5BC29AD30C30033C0B4 /* AppDelegate.swift */; };
 		7AB8B5BF29AD30C30033C0B4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AB8B5BE29AD30C30033C0B4 /* SceneDelegate.swift */; };
 		7AB8B5C629AD30C50033C0B4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7AB8B5C529AD30C50033C0B4 /* Assets.xcassets */; };
@@ -78,6 +79,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7A819FC729AFDC6B000BC1DC /* ModuleBuilderTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModuleBuilderTest.swift; sourceTree = "<group>"; };
 		7AB8B5B929AD30C30033C0B4 /* Rockets.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Rockets.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7AB8B5BC29AD30C30033C0B4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7AB8B5BE29AD30C30033C0B4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -204,6 +206,7 @@
 			children = (
 				7AB8B66729AF069D0033C0B4 /* Mocks */,
 				7AB8B66529AEFA300033C0B4 /* RouterTest.swift */,
+				7A819FC729AFDC6B000BC1DC /* ModuleBuilderTest.swift */,
 			);
 			path = RocketsTests;
 			sourceTree = "<group>";
@@ -673,6 +676,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7AB8B66629AEFA300033C0B4 /* RouterTest.swift in Sources */,
+				7A819FC829AFDC6B000BC1DC /* ModuleBuilderTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
