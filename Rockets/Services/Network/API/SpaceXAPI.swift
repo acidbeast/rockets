@@ -53,11 +53,6 @@ extension SpaceXAPI: APIClient {
     }
     
     var decoder: JSONDecoder {
-        let decoder = JSONDecoder()
-        decoder.keyDecodingStrategy = .convertFromSnakeCase
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
-        decoder.dateDecodingStrategy = .formatted(dateFormatter)
-        return decoder
+        NetworkService.decoder
     }
 }

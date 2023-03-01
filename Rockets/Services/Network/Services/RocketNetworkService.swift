@@ -11,7 +11,7 @@ import NetworkDispatcher
 protocol RocketNetworkServiceProtocol {
     func getRockets(
         onSuccess: @escaping ([Rocket]) -> Void,
-        onError: @escaping (NetworkError) -> Void
+        onError: @escaping (Error) -> Void
     )
 }
 
@@ -25,7 +25,7 @@ final class RocketNetworkService: RocketNetworkServiceProtocol {
     
     func getRockets(
         onSuccess: @escaping ([Rocket]) -> Void,
-        onError: @escaping (NetworkError) -> Void
+        onError: @escaping (Error) -> Void
     ) {
         service.request(.rockets) { result in
             self.service.handle(

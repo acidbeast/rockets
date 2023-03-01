@@ -13,21 +13,21 @@ protocol MainPresenterProtocol: AnyObject {
     init(
         view: MainViewProtocol,
         router: MainRouterProtocol,
-        rocketService: RocketNetworkService
+        rocketService: RocketNetworkServiceProtocol
     )
     func getRockets()
 }
 
 final class MainPresenter {
         
-    private let rocketService: RocketNetworkService
+    private let rocketService: RocketNetworkServiceProtocol
     weak var view: MainViewProtocol?
     let router: MainRouterProtocol?
         
     init(
         view: MainViewProtocol,
         router: MainRouterProtocol,
-        rocketService: RocketNetworkService
+        rocketService: RocketNetworkServiceProtocol
     ) {
         self.view = view
         self.router = router
