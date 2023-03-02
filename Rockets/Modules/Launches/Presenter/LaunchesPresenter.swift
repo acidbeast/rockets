@@ -19,8 +19,9 @@ protocol LaunchesPresenterProtocol: AnyObject {
         router: MainRouterProtocol,
         rocketId: String,
         rocketName: String,
-        launchService: LaunchNetworkService
+        launchService: LaunchNetworkServiceProtocol
     )
+    var view: LaunchesViewProtocol? { get set }
     var launches: [Launch] { get set }
     func getLaunches()
     func setTitle()
@@ -29,12 +30,12 @@ protocol LaunchesPresenterProtocol: AnyObject {
 }
 
 final class LaunchesPresenter: LaunchesPresenterProtocol {
-     
+
     weak var view: LaunchesViewProtocol?
     let router: MainRouterProtocol!
     private let rocketId: String
     private let rocketName: String
-    private let launchService: LaunchNetworkService
+    private let launchService: LaunchNetworkServiceProtocol
     
     var launches = [Launch]()
     
@@ -43,7 +44,7 @@ final class LaunchesPresenter: LaunchesPresenterProtocol {
         router: MainRouterProtocol,
         rocketId: String,
         rocketName: String,
-        launchService: LaunchNetworkService
+        launchService: LaunchNetworkServiceProtocol
     ) {
         self.view = view
         self.router = router
