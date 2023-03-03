@@ -61,6 +61,8 @@
 		7AB8B65E29AD32450033C0B4 /* NetworkDispatcher in Frameworks */ = {isa = PBXBuildFile; productRef = 7AB8B65D29AD32450033C0B4 /* NetworkDispatcher */; };
 		7AB8B66629AEFA300033C0B4 /* RouterTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AB8B66529AEFA300033C0B4 /* RouterTest.swift */; };
 		7AB8B66929AF06B60033C0B4 /* RocketMock.json in Resources */ = {isa = PBXBuildFile; fileRef = 7AB8B66829AF06B60033C0B4 /* RocketMock.json */; };
+		7AED941029B1985000C1AC96 /* LaunchMock.json in Resources */ = {isa = PBXBuildFile; fileRef = 7AED940F29B1985000C1AC96 /* LaunchMock.json */; };
+		7AED941229B1F2FA00C1AC96 /* MainPresenterTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AED941129B1F2FA00C1AC96 /* MainPresenterTest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -138,6 +140,8 @@
 		7AB8B63429AD31E30033C0B4 /* ErrorVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorVC.swift; sourceTree = "<group>"; };
 		7AB8B66529AEFA300033C0B4 /* RouterTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouterTest.swift; sourceTree = "<group>"; };
 		7AB8B66829AF06B60033C0B4 /* RocketMock.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = RocketMock.json; sourceTree = "<group>"; };
+		7AED940F29B1985000C1AC96 /* LaunchMock.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = LaunchMock.json; sourceTree = "<group>"; };
+		7AED941129B1F2FA00C1AC96 /* MainPresenterTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPresenterTest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -213,6 +217,7 @@
 				7A819FC729AFDC6B000BC1DC /* ModuleBuilderTest.swift */,
 				7A819FCB29AFEC93000BC1DC /* LaunchesPresenterTest.swift */,
 				7AB8B66529AEFA300033C0B4 /* RouterTest.swift */,
+				7AED941129B1F2FA00C1AC96 /* MainPresenterTest.swift */,
 			);
 			path = RocketsTests;
 			sourceTree = "<group>";
@@ -489,6 +494,7 @@
 			isa = PBXGroup;
 			children = (
 				7AB8B66829AF06B60033C0B4 /* RocketMock.json */,
+				7AED940F29B1985000C1AC96 /* LaunchMock.json */,
 			);
 			path = Mocks;
 			sourceTree = "<group>";
@@ -612,6 +618,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7AED941029B1985000C1AC96 /* LaunchMock.json in Resources */,
 				7AB8B66929AF06B60033C0B4 /* RocketMock.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -682,6 +689,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7AB8B66629AEFA300033C0B4 /* RouterTest.swift in Sources */,
+				7AED941229B1F2FA00C1AC96 /* MainPresenterTest.swift in Sources */,
 				7A819FCC29AFEC93000BC1DC /* LaunchesPresenterTest.swift in Sources */,
 				7A819FCA29AFE7F5000BC1DC /* ErrorPresenterTest.swift in Sources */,
 				7A819FC829AFDC6B000BC1DC /* ModuleBuilderTest.swift in Sources */,

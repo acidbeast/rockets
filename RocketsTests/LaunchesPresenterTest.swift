@@ -37,6 +37,21 @@ class LaunchServiceMock: LaunchNetworkServiceProtocol {
 }
 
 
+class LaunchServiceSuccessMock: LaunchNetworkServiceProtocol {
+    
+    let launches: [Launch]
+    
+    init(with launches: [Launch]) {
+        self.launches = launches
+    }
+    
+    func getLaunches(onSuccess: @escaping ([Rockets.Launch]) -> Void, onError: @escaping (NetworkError) -> Void) {
+        onSuccess(launches)
+    }
+    
+}
+
+
 final class LaunchesPresenterTest: XCTestCase {
 
     let moduleBuilder = ModuleBuilder()
@@ -53,7 +68,7 @@ final class LaunchesPresenterTest: XCTestCase {
     override func tearDown() {
         router = nil
     }
-    
+        
     func testLaunchesPresenterSetTitle() {
         let vc = moduleBuilder.createLaunchesModule(rocketId: "1", rocketName: "Falcon 1", router: router)
         if let presenter = (vc as? LaunchesVC)?.presenter {
@@ -102,5 +117,5 @@ final class LaunchesPresenterTest: XCTestCase {
         presenter.getLaunches()
         XCTAssertEqual(launchServiceMock.serviceCallCounter, 1)
     }
-
+    
 }
