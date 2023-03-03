@@ -21,7 +21,7 @@ class RocketsMockView: RocketsViewProtocol {
     
 }
 
-class RocketsPresenterTest: XCTestCase {
+final class RocketsPresenterTest: XCTestCase {
     
     let moduleBuilder = ModuleBuilder()
     let navigationController = UINavigationController()

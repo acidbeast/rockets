@@ -42,17 +42,6 @@ final class RouterTest: XCTestCase {
         router = nil
     }
     
-    func getRocketMock() throws -> Rocket? {
-        let bundle = Bundle(for: type(of: self))
-        guard let url = bundle.url(forResource: "RocketMock", withExtension: "json") else {
-                XCTFail("Missing file: RocketMock.json")
-                return nil
-            }
-        let json = try Data(contentsOf: url)
-        let rocket = try NetworkService.decoder.decode(Rocket.self, from: json)
-        return rocket
-    }
-
     func testRouterStart() throws {
         router.start()
         XCTAssertTrue(navigationController.viewControllers[0] is MainVC)
