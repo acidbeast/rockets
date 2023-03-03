@@ -63,6 +63,8 @@
 		7AB8B66929AF06B60033C0B4 /* RocketMock.json in Resources */ = {isa = PBXBuildFile; fileRef = 7AB8B66829AF06B60033C0B4 /* RocketMock.json */; };
 		7AED941029B1985000C1AC96 /* LaunchMock.json in Resources */ = {isa = PBXBuildFile; fileRef = 7AED940F29B1985000C1AC96 /* LaunchMock.json */; };
 		7AED941229B1F2FA00C1AC96 /* MainPresenterTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AED941129B1F2FA00C1AC96 /* MainPresenterTest.swift */; };
+		7AED941429B26E7100C1AC96 /* RocketsPresenterTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AED941329B26E7100C1AC96 /* RocketsPresenterTest.swift */; };
+		7AED941629B272DD00C1AC96 /* XCTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AED941529B272DD00C1AC96 /* XCTestCase.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -142,6 +144,8 @@
 		7AB8B66829AF06B60033C0B4 /* RocketMock.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = RocketMock.json; sourceTree = "<group>"; };
 		7AED940F29B1985000C1AC96 /* LaunchMock.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = LaunchMock.json; sourceTree = "<group>"; };
 		7AED941129B1F2FA00C1AC96 /* MainPresenterTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPresenterTest.swift; sourceTree = "<group>"; };
+		7AED941329B26E7100C1AC96 /* RocketsPresenterTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RocketsPresenterTest.swift; sourceTree = "<group>"; };
+		7AED941529B272DD00C1AC96 /* XCTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XCTestCase.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -212,12 +216,14 @@
 		7AB8B5D229AD30C50033C0B4 /* RocketsTests */ = {
 			isa = PBXGroup;
 			children = (
+				7AED941729B2746500C1AC96 /* Extensions */,
 				7AB8B66729AF069D0033C0B4 /* Mocks */,
 				7A819FC929AFE7F5000BC1DC /* ErrorPresenterTest.swift */,
+				7AED941129B1F2FA00C1AC96 /* MainPresenterTest.swift */,
 				7A819FC729AFDC6B000BC1DC /* ModuleBuilderTest.swift */,
 				7A819FCB29AFEC93000BC1DC /* LaunchesPresenterTest.swift */,
+				7AED941329B26E7100C1AC96 /* RocketsPresenterTest.swift */,
 				7AB8B66529AEFA300033C0B4 /* RouterTest.swift */,
-				7AED941129B1F2FA00C1AC96 /* MainPresenterTest.swift */,
 			);
 			path = RocketsTests;
 			sourceTree = "<group>";
@@ -499,6 +505,14 @@
 			path = Mocks;
 			sourceTree = "<group>";
 		};
+		7AED941729B2746500C1AC96 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				7AED941529B272DD00C1AC96 /* XCTestCase.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -690,8 +704,10 @@
 			files = (
 				7AB8B66629AEFA300033C0B4 /* RouterTest.swift in Sources */,
 				7AED941229B1F2FA00C1AC96 /* MainPresenterTest.swift in Sources */,
+				7AED941629B272DD00C1AC96 /* XCTestCase.swift in Sources */,
 				7A819FCC29AFEC93000BC1DC /* LaunchesPresenterTest.swift in Sources */,
 				7A819FCA29AFE7F5000BC1DC /* ErrorPresenterTest.swift in Sources */,
+				7AED941429B26E7100C1AC96 /* RocketsPresenterTest.swift in Sources */,
 				7A819FC829AFDC6B000BC1DC /* ModuleBuilderTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

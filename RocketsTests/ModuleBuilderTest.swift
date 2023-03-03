@@ -25,17 +25,6 @@ final class ModuleBuilderTest: XCTestCase {
     override func tearDown() {
         router = nil
     }
-    
-    func getRocketMock() throws -> Rocket? {
-        let bundle = Bundle(for: type(of: self))
-        guard let url = bundle.url(forResource: "RocketMock", withExtension: "json") else {
-                XCTFail("Missing file: RocketMock.json")
-                return nil
-            }
-        let json = try Data(contentsOf: url)
-        let rocket = try NetworkService.decoder.decode(Rocket.self, from: json)
-        return rocket
-    }
 
     func testCreateMainModule() throws {
         let vc = moduleBuilder.createMainModule(router: router)
