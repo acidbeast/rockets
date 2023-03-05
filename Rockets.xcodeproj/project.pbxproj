@@ -66,6 +66,7 @@
 		7AED941429B26E7100C1AC96 /* RocketsPresenterTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AED941329B26E7100C1AC96 /* RocketsPresenterTest.swift */; };
 		7AED941629B272DD00C1AC96 /* XCTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AED941529B272DD00C1AC96 /* XCTestCase.swift */; };
 		7AED941929B2812500C1AC96 /* RocketsPagePresenterTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AED941829B2812500C1AC96 /* RocketsPagePresenterTest.swift */; };
+		7AED941B29B524F300C1AC96 /* SettingsPresenterTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AED941A29B524F300C1AC96 /* SettingsPresenterTest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -148,6 +149,7 @@
 		7AED941329B26E7100C1AC96 /* RocketsPresenterTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RocketsPresenterTest.swift; sourceTree = "<group>"; };
 		7AED941529B272DD00C1AC96 /* XCTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XCTestCase.swift; sourceTree = "<group>"; };
 		7AED941829B2812500C1AC96 /* RocketsPagePresenterTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RocketsPagePresenterTest.swift; sourceTree = "<group>"; };
+		7AED941A29B524F300C1AC96 /* SettingsPresenterTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsPresenterTest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -227,6 +229,7 @@
 				7AED941829B2812500C1AC96 /* RocketsPagePresenterTest.swift */,
 				7AED941329B26E7100C1AC96 /* RocketsPresenterTest.swift */,
 				7AB8B66529AEFA300033C0B4 /* RouterTest.swift */,
+				7AED941A29B524F300C1AC96 /* SettingsPresenterTest.swift */,
 			);
 			path = RocketsTests;
 			sourceTree = "<group>";
@@ -705,6 +708,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7AED941B29B524F300C1AC96 /* SettingsPresenterTest.swift in Sources */,
 				7AB8B66629AEFA300033C0B4 /* RouterTest.swift in Sources */,
 				7AED941229B1F2FA00C1AC96 /* MainPresenterTest.swift in Sources */,
 				7AED941629B272DD00C1AC96 /* XCTestCase.swift in Sources */,

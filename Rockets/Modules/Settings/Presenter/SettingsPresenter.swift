@@ -15,7 +15,7 @@ protocol SettingsPresenterProtocol: AnyObject {
     init(
         view: SettingsViewProtocol,
         router: MainRouterProtocol,
-        settingsRepository: SettingsRepository,
+        settingsRepository: SettingsRepositoryProtocol,
         rocketId: String,
         onClose: (() -> Void)?
     )
@@ -30,7 +30,7 @@ final class SettingsPresenter {
     
     weak var view: SettingsViewProtocol?
     private let router: MainRouterProtocol?
-    private let settingsRepository: SettingsRepository?
+    private let settingsRepository: SettingsRepositoryProtocol?
     private let rocketId: String
     private var onClose: (() ->  Void)?
     
@@ -39,7 +39,7 @@ final class SettingsPresenter {
     init(
         view: SettingsViewProtocol,
         router: MainRouterProtocol,
-        settingsRepository: SettingsRepository,
+        settingsRepository: SettingsRepositoryProtocol,
         rocketId: String,
         onClose: (() -> Void)?
     ) {
