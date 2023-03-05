@@ -7,7 +7,7 @@
 
 import UIKit
 
-enum RocketSectionType {
+enum RocketSectionType {    
     case image
     case title(text: String)
     case subtitle(text: String)

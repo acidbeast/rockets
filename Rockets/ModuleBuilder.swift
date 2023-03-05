@@ -82,7 +82,7 @@ class ModuleBuilder: ModuleBuilderProtocol {
         let presenter = RocketsPagePresenter(
             view: vc,
             router: router,
-            imageDownloader: .shared,
+            imageDownloader: ImageDownloader.shared,
             settingsRepository: LocalService.settingsRepository,
             rocket: rocket
         )

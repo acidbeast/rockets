@@ -15,7 +15,7 @@ protocol RocketsPagePresenterProtocol: AnyObject {
     init(
         view: RocketPageViewProtocol,
         router: MainRouterProtocol,
-        imageDownloader: ImageDownloader,
+        imageDownloader: ImageDownloaderProtocol,
         settingsRepository: SettingsRepositoryProtocol,
         rocket: Rocket
     )
@@ -24,7 +24,10 @@ protocol RocketsPagePresenterProtocol: AnyObject {
     func tapOnSettings()
     func tapOnLauches()
     func downLoadImage()
+    func updateImage(with data: Data)
     func getSettings()
+    func getRocketSpecItems() -> [RocketSpec] 
+    func updateSection(with section: RocketSection, at index: Int)
     func updateSpecs()
 }
 
@@ -32,7 +35,7 @@ final class RocketsPagePresenter: RocketsPagePresenterProtocol {
         
     weak var view: RocketPageViewProtocol?
     private let router: MainRouterProtocol?
-    private let imageDownloader: ImageDownloader?
+    private let imageDownloader: ImageDownloaderProtocol?
     private let settingsRepository: SettingsRepositoryProtocol?
     private let rocket: Rocket
     
@@ -42,7 +45,7 @@ final class RocketsPagePresenter: RocketsPagePresenterProtocol {
     required init(
         view: RocketPageViewProtocol,
         router: MainRouterProtocol,
-        imageDownloader: ImageDownloader,
+        imageDownloader: ImageDownloaderProtocol,
         settingsRepository: SettingsRepositoryProtocol,
         rocket: Rocket
     ) {
@@ -197,8 +200,9 @@ final class RocketsPagePresenter: RocketsPagePresenterProtocol {
     }
     
     func updateSection(with section: RocketSection, at index: Int) {
-        self.sections.remove(at: index)
-        self.sections.insert(contentsOf: [section], at: index)
+        if !sections.indices.contains(index) { return }
+        sections.remove(at: index)
+        sections.insert(contentsOf: [section], at: index)
     }
     
     func updateSpecs() {

@@ -7,9 +7,15 @@
 
 import Foundation
 
-final class ImageDownloader {
+protocol ImageDownloaderProtocol {
+    static var shared: ImageDownloader { get }
+    func download(url: URL, completion: @escaping (Data?, Error?) -> Void)
+}
+
+final class ImageDownloader: ImageDownloaderProtocol {
     
     static let shared = ImageDownloader()
+    
     init() {}
     
     func download(url: URL, completion: @escaping (Data?, Error?) -> Void) {
